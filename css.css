@@ -38,12 +38,14 @@
     }
 
     nav .logo-container img {
-      height: 90px;
+      height: 60px;
     }
 
     nav .logo-text {
       font-size: 55px;
       font-weight: bold;
+      position: relative;
+      right: 30px;
     }
 
      @media screen and (max-width: 414px) {
@@ -71,11 +73,13 @@
     @media screen and (max-width: 414px) {
   /* CSS rules to apply when the screen width is 768px or wider */
   nav ul {
-         width: 50%;
+    
+        flex-direction: column;
+        width: 100%;
          gap: 9px;
          font-size: 12px;
          position: relative;
-        left: 2px;
+        left: 30px;
   }
 }
 
@@ -83,11 +87,12 @@
       color: white;
       text-decoration: none;
       font-weight: bold;
-      transition: color 0.3s ease;
+      transition: color 1s ease;
     }
 
     nav ul li a:hover {
       color: #d20798;
+      
     }
 
     /* MAIN CONTENT */
@@ -103,13 +108,13 @@
     .cards-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 10px;
+      gap: 12px;
       margin-top: 20px;
       
     }
 
     .card {
-      background-color: white;
+      background-color: #e7e6eb;
       border-radius: 10px;
       box-shadow: 1px 3px 8px 1px #d20798;
       overflow: hidden;
@@ -137,12 +142,12 @@
     .card-content h3 {
       margin-bottom: 10px;
       font-size: 18px;
-      color: #333;
+      color: black;
     }
 
     .card-content p {
       font-size: 14px;
-      color: #666;
+      color: #383737;
     }
 
     .card-button {
@@ -151,7 +156,7 @@
     }
 
     .card-button button {
-      background-color: #007BFF;
+      background-color: #41b4f2;
       border: none;
       padding: 10px 20px;
       border-radius: 5px;
@@ -160,7 +165,7 @@
     }
 
     .card-button button:hover {
-      background-color: #0056b3;
+      background-color: #d20798;
     }
 
     .card-button a {
@@ -218,3 +223,60 @@
     footer ul li a:hover {
       color: white;
     }
+
+    /*nav*/
+    /* Ocultar checkbox */
+#menu-toggle {
+  display: none;
+}
+
+/* Ícono del menú hamburguesa */
+.menu-icon {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  padding: 10px;
+}
+
+.menu-icon span {
+  background-color: white;
+  height: 3px;
+  width: 25px;
+  border-radius: 2px;
+}
+
+/* Estilo responsivo del menú */
+@media screen and (max-width: 768px) {
+  nav {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .menu-icon {
+    display: flex;
+  }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgb(11, 11, 11);
+    position: absolute;
+    top: 70px;
+    left: 0px;
+    z-index: 10;
+    padding: 10px 20px;
+    gap: 10px;
+    text-align: center;
+  }
+
+  #menu-toggle:checked ~ .menu-icon + .menu {
+    display: flex;
+  }
+
+  nav ul li a {
+    font-size: 16px;
+    padding: 10px 0;
+  }
+}
